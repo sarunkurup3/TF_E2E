@@ -7,7 +7,7 @@ data "aws_ecr_repository" "nodeapp" {
 data "template_file" "cb_app" {
   template = file("./templates/ecs/cb_app.json.tpl")
 
-  vars = {
+  vars = { 
     app_image      = data.aws_ecr_repository.nodeapp.repository_url
     app_port       = var.app_port
     fargate_cpu    = var.fargate_cpu
